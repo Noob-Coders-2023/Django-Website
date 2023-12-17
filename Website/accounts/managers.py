@@ -12,7 +12,7 @@ class UserManager(BaseUserManager):
         if not full_name:
             raise ValueError('User must have a full name.')
 
-        user = self.model(phone_number=phone_number, email=self.normalize_email(email), full_name=full_name
+        user = self.model(phone_number=phone_number, email=self.normalize_email(email), full_name=full_name)
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -22,3 +22,4 @@ class UserManager(BaseUserManager):
         user.is_admin = True
         user.save(using=self._db)
         return user
+    
